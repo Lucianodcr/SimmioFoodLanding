@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react'
+import { useState, ReactNode } from 'react'
 import { Coffee, ShoppingCart, Clipboard, BarChart, Utensils, Smartphone, Clock, MessageCircle, Check, ChevronRight, Star, Menu, X } from "lucide-react"
 import Image from "next/image"
 
@@ -295,7 +295,13 @@ export default function LandingPage() {
   )
 }
 
-function FeatureCard({ icon, title, description }) {
+interface FeatureCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <div className="flex flex-col items-center text-center">
@@ -307,7 +313,14 @@ function FeatureCard({ icon, title, description }) {
   )
 }
 
-function PlanCard({ title, price, features, highlighted = false }) {
+interface PlanCardProps {
+  title: string;
+  price: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+function PlanCard({ title, price, features, highlighted = false }: PlanCardProps) {
   return (
     <div className={`bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg ${highlighted ? 'border-2 border-[#FF6B6B] scale-105' : ''}`}>
       <div className="p-6">
@@ -332,7 +345,13 @@ function PlanCard({ title, price, features, highlighted = false }) {
   )
 }
 
-function TestimonialCard({ name, role, content }) {
+interface TestimonialCardProps {
+  name: string;
+  role: string;
+  content: string;
+}
+
+function TestimonialCard({ name, role, content }: TestimonialCardProps) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <div className="flex items-center mb-4">
